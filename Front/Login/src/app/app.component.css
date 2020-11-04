@@ -4,10 +4,10 @@
     background-color: #5377BF;
 }
 
-.signin-container{
-    /* margin-top: 10%; */
-    /* background-color: #5377BF; */
-}
+/* .signin-container{
+    margin-top: 10%;
+    background-color: #5377BF;
+} */
 
 /*assigning class names of body to signin-body and container to signin-container so as to prevent the styling from appearing on all bodies/containers used further*/
 

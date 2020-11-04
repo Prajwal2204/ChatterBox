@@ -4,16 +4,16 @@
   background-color: #5377BF;
 }
 
-.signin-container{
-  /* margin-top: 10%; */
-  /* background-color: #5377BF; */
-}
+/* .signin-container{
+  margin-top: 10%; */
+  /* background-color: #5377BF;
+} */
 
 /*assigning class names of body to signin-body and container to signin-container so as to prevent the styling from appearing on all bodies/containers used further*/
 
 .signin-card{
   padding: 40px 0px 20px;
-  margin-top: 30%;
+  margin-top: 20%;
   background-color: #F4F4F4;
   box-shadow: 2px 2px 5px/*blur*/ rgba(0,0,0,0.8);
   -webkit-box-shadow: 2px 2px 5px/*blur*/ rgba(0,0,0,0.8);

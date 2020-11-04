@@ -7,20 +7,24 @@
               <div class="card signin-card">
                   <div class="card-block signin-card-block">
                       <img src = "../assets/logo.PNG" class = "img-fluid signin-img"><!--img-fluid is a ready made class for responsive images to force image to fit inside its parent-->
-                      <form>
+                      <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm.value)">
+                        <!-- {{loginForm.value | json}} -->
                             <div class="form-group">
-                                  <input type="text" class="form-control" id="fnameInput" placeholder="First Name">
+                                  <input type="text" ngModel name="fname" class="form-control" id="fnameInput" placeholder="First Name">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="lnameInput" placeholder="Last Name">
+                              <input type="text" ngModel name="lname" class="form-control" id="lnameInput" placeholder="Last Name">
+                            </div>
+                            <!-- <div class="form-group">
+                              <input type="date" ngModel name="dob" class="form-control" id="dateInput" placeholder="Date of Birth">
+                            </div> -->
+                            <div class="form-group">
+                              <input type="email" ngModel name="email" class="form-control" id="emailInput" placeholder="Email">
                             </div>
                             <div class="form-group">
-                              <input type="date" class="form-control" id="dateInput" placeholder="Date of Birth">
+                              <input type="password" ngModel name="password" class="form-control" id="passwordInput" placeholder="Password">
                             </div>
-                            <div class="form-group">
-                                  <input type="password" class="form-control" id="passwordInput" placeholder="Password">
-                            </div>
-                          <button type="button" class="btn signin-btn btn-lg">Sign Up</button>
+                          <button type="submit" class="btn signin-btn btn-lg">Sign Up</button>
                           <!-- <div class="form-check">
                                 <label class="form-check-label">
                                       <input class="form-check-input" type="checkbox"> Remember Me

@@ -7,14 +7,15 @@
               <div class="card signin-card">
                   <div class="card-block signin-card-block">
                       <img src = "../assets/logo.PNG" class = "img-fluid signin-img"><!--img-fluid is a ready made class for responsive images to force image to fit inside its parent-->
-                      <form>
+                      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                            <!-- {{loginForm.value | json}} -->
                             <div class="form-group">
-                                  <input type="email" class="form-control" id="emailInput" placeholder="Email">
+                                  <input ngModel type="email" class="form-control" name="email" id="emailInput" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                  <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                  <input ngModel type="password" class="form-control" name="password" id="passwordInput" placeholder="Password">
                             </div>
-                          <button type="button" class="btn signin-btn btn-lg">Sign In</button>
+                          <button type="submit" class="btn signin-btn btn-lg">Sign In</button>
                           <!-- <div class="form-check">
                                 <label class="form-check-label">
                                       <input class="form-check-input" type="checkbox"> Remember Me
