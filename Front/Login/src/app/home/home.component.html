@@ -1,0 +1,51 @@
+<body class = "signin-body">
+  <nav>
+    <ul class = "topnav" id = "dropdownClick">
+        <li class="logo"><img src="../../assets/logo-img(1).png" id="logo-hor"></li>
+        <li class = "active"><a href = "#home">Home</a></li>
+        <li><a routerLink="/chat">Chat</a></li>
+        <li><a routerLink="/stories">Stories</a></li>
+        <li class = "topnav-right"><a routerLink="/login">Log Out</a></li>
+        <li class = "dropdownIcon"><a href = "javascript:void(0);" onclick = "dropdownMenu()">&#9776;</a></li><!--that href is used to solve the problem of the dropdown popping up and disappearing--><!--unicode for dropdown but it needs to be hidden-->
+
+    </ul>
+</nav>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class = "row">
+      <div class = "col-sm-12">
+        <h1 class="display-3"><img class="jumbo-img" src="../../assets/logo-horizontal(1).png"></h1>
+        <br>
+        <p class="lead">A web app to take care of all your chatting needs.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card chat-card">
+          <div class="card-block">
+            <h3 class="card-title">Chat</h3>
+            <p class="card-text">Chat with your friends.</p>
+            <a routerLink="/chat" class="btn signin-btn">Chat</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card stories-card">
+          <div class="card-block">
+            <h3 class="card-title">Stories</h3>
+            <p class="card-text">Check on your friends to know what they are up to.</p>
+            <a routerLink="/stories" class="btn signin-btn">Stories</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src = "../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- <router-outlet></router-outlet> -->
+</body>
