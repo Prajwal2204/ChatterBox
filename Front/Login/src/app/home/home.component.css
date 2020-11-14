@@ -74,10 +74,16 @@ div.col-sm-12{
 
 .chat-card{
   padding: 10%;
+  background-color: #F4F4F4;
+  text-align: center;
+  border: 0px;
 }
 
 .stories-card{
   padding: 10%;
+  background-color: #F4F4F4;
+  text-align: center;
+  border: 0px;
 }
 
 .signin-body{

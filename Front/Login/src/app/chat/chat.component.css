@@ -6,7 +6,6 @@
 li.logo{
   padding: 0;
 } */
-
 nav{
   display: block;
   width: 100%;
@@ -83,13 +82,50 @@ div.col-sm-12{
 .signin-body{
   margin-top: 0px;
   /* top: 0px; */
-  background-color: #FFFFFF;
+  background-color: #5377BF;
+  margin: 0;
 }
 
-/* .signin-container{
-  margin-top: 10%; */
-  /* background-color: #5377BF;
-} */
+.signin-container{
+  margin: 0px;
+  padding: 0px;
+  max-width: 100%;
+  /* background-color: #5377BF;*/
+}
+
+.chat{
+  margin: 0px;
+  height: 100%;
+}
+
+.chat-names{
+  background-color: #5377BF;
+  min-height: 100%;
+}
+
+.chat-area{
+  background-color:#F4F4F4;
+  min-height: 100%;
+}
+
+.chat-person-name{
+  background-color: #5377BF;
+}
+
+.chat-person-area{
+  background-color: #F4F4F4;
+  min-height: 85%;
+}
+
+.chat-person-text{
+  width: 100%;
+  margin: auto;
+}
+
+.send-txt{
+  width: 100%;
+  height: 70%;
+}
 
 /*assigning class names of body to signin-body and container to signin-container so as to prevent the styling from appearing on all bodies/containers used further*/
 

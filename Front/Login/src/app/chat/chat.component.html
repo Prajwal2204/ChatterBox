@@ -10,39 +10,33 @@
 
     </ul>
 </nav>
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class = "row">
-      <div class = "col-sm-12">
-        <h1 class="display-3"><img class="jumbo-img" src="../../assets/logo-horizontal(1).png"></h1>
-        <br>
-        <p class="lead">A web app to take care of all your chatting needs.</p>
+<div class = "container signin-container"><!--container = center, container-fluid = "100% width-->
+  <div class = "row chat">
+      <div class = "col-sm-12 col-md-4 chat-names">
+          //chat names
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card chat-card">
-          <div class="card-block">
-            <h3 class="card-title">Chat</h3>
-            <p class="card-text">Chat with your friends.</p>
-            <a routerLink="/chat" class="btn signin-btn">Chat</a>
+      <div class = "col-sm-12 col-md-8 chat-area">
+          <div class = "row chat-person-name">
+              //chat person name
+          </div>
+          <div class = "row chat-person-area">
+              //chat area
+          </div>
+          <div class = "row chat-person-text">
+            <div class = "col-md-10">
+              <form>
+                <div class="form-group">
+                  <input type="text" ngModel name="msg" class="form-control send-txt" id = "txt-msg" placeholder="Enter Message">
+                </div>
+              </form>
+            </div>
+            <div class = "col-md-2">
+              <button type="submit" class="btn signin-btn btn-lg send-btn">Send</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card stories-card">
-          <div class="card-block">
-            <h3 class="card-title">Stories</h3>
-            <p class="card-text">Check on your friends to know what they are up to.</p>
-            <a routerLink="/stories" class="btn signin-btn">Stories</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
   <!-- jQuery first, then Tether, then Bootstrap JS. -->
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
