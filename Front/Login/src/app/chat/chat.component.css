@@ -59,6 +59,8 @@ ul.topnav li.dropdownIcon {
   display: none; /*to hide it initially*/ /*display prop is easily overwritten*/
 }
 
+
+
 .jumbotron{
   background-color: #F4F4F4;
 }
