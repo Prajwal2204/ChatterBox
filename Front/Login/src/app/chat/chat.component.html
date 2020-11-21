@@ -1,57 +1,67 @@
-<body class = "signin-body">
-  <nav>
-    <ul class = "topnav" id = "dropdownClick">
-        <li class="logo"><img routerLink="/home" src="../../assets/logo-img(1).png" id="logo-hor"></li>
-        <li><a routerLink = "/home">Home</a></li>
-        <li class = "active"><a routerLink="/chat">Chat</a></li>
-        <li><a routerLink="/stories">Stories</a></li>
-        <li class = "topnav-right"><a routerLink="/login">Log Out</a></li>
-        <li class = "dropdownIcon"><a href = "javascript:void(0);" onclick = "dropdownMenu()">&#9776;</a></li><!--that href is used to solve the problem of the dropdown popping up and disappearing--><!--unicode for dropdown but it needs to be hidden-->
+<body class="signin-body">
+    <nav>
+        <ul class="topnav" id="dropdownClick">
+            <li class="logo"><img routerLink="/home" src="../../assets/logo-img(1).png" id="logo-hor"></li>
+            <li><a routerLink="/home">Home</a></li>
+            <li class="active"><a routerLink="/chat">Chat</a></li>
+            <li class="topnav-right">
+                <a style="pointer-events: none; color:white;">{{username}}</a>
+            </li>
+            <li class="topnav-right"><a (click)="Logout()">Log Out</a></li>
+            <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
+            <!--that href is used to solve the problem of the dropdown popping up and disappearing-->
+            <!--unicode for dropdown but it needs to be hidden-->
 
-    </ul>
-</nav>
-<div class = "container signin-container"><!--container = center, container-fluid = "100% width-->
-  <div class = "row chat">
-      <div class = "col-sm-12 col-md-4 chat-names">
-          //chat names
-      </div>
-      <div class = "col-sm-12 col-md-8 chat-area">
-          <div class = "row chat-person-name">
-              //chat person name
-          </div>
-          <div class = "row chat-person-area">
-              //chat area
-          </div>
-          <div class = "row chat-person-text">
-            <div class = "col-md-10">
-              <form>
-                <div class="form-group">
-                  <input type="text" ngModel name="msg" class="form-control send-txt" id = "txt-msg" placeholder="Enter Message">
+        </ul>
+    </nav>
+    <div class="container signin-container">
+        <!--container = center, container-fluid = "100% width-->
+        <div class="row chat">
+            <div class="col-sm-12 col-md-3 chat-names">
+                <div class="row mx-auto mt-5 pb-5" style="border-radius:20px;overflow:auto;max-height:80vh;background-color:rgb(214, 214, 214);">
+                    <div class="mx-auto mt-3 col-sm-8">
+                        <h2>Users</h2>
+                    </div>
+                    <div *ngFor="let user of users; let i = index" (click)="changeUser(user)" style="height:auto;" class="col-sm-8 mx-auto person_name">
+                        <p class="px-3 capitalize centered text-white">{{user.username }}</p>
+                    </div>
                 </div>
-              </form>
             </div>
-            <div class = "col-md-2">
-              <button type="submit" class="btn signin-btn btn-lg send-btn">Send</button>
+            <div id="sike" class="col-sm-12 col-md-9 chat-area">
+                <div class="row chat-person-area">
+
+                    <div class="mx-auto mt-5 mb-5 p-3" style="border-radius:20px;height:69vh;overflow:auto;width:90%;background-color:rgb(214, 214, 214);">
+                        <div class="mt-1">
+                            <h5><b style="color:#FF8000;" class="capitalize">{{active_user_name}}</b></h5>
+                        </div>
+                        <div #chat>
+                            <div class="row m-0 d-flex flex-column align-items-center">
+                                <div class="pl-3 pr-3 d-flex justify-content-center mt-5 bd-highlight mb-3">
+                                    <h2 class="d-flex mt-5 p-2 bd-highlight">Welcome, Select a User to start Chatting</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row chat-person-text">
+                    <div class="col-md-10">
+                        <form>
+                            <div class="form-group">
+                                <input #message type="text" name="msg" class="form-control send-txt" id="txt-msg" placeholder="Enter Message">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <button (click)="sendMessage()" type="submit" class="btn signin-btn btn-lg send-btn">Send</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-  </div>
-</div>
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src = "../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- <script>
-    function dropdownMenu(){
-                var x = document.getElementById("dropdownClick");
-                if (x.className === "topnav"){
-                    x.className += " responsive";
-                    /*change topnav to topnav responsive*/
-                }
-                else {
-                    x.className = "topnav";
-                }
-            }
-  </script> -->
-  <!-- <router-outlet></router-outlet> -->
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <router-outlet></router-outlet> -->
 </body>
