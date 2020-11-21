@@ -127,13 +127,23 @@ div.col-sm-12 {
 
 .person_name {
     border-radius: 5px;
-    background-color: #1C2321;
+    background-color: #5377BF;
     margin: 0 auto;
     margin-top: 5%;
 }
 
 .person_name:hover {
-    background-color: rgb(248, 155, 63);
+    background-color: #F4F4F4;
+}
+
+.txt{
+  color: #1C2321;
+  margin-top: 2%;
+  font-weight: bold;
+}
+
+.txt:hover{
+  color: #FF8000;
 }
 
 .chat-names {
