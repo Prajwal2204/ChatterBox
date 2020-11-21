@@ -1,4 +1,5 @@
 <body class="signin-body">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <nav>
         <ul class="topnav" id="dropdownClick">
             <li class="logo"><img routerLink="/home" src="../../assets/logo-img(1).png" id="logo-hor"></li>
@@ -29,11 +30,20 @@
             </div>
             <div id="sike" class="col-sm-12 col-md-9 chat-area">
                 <div class="row chat-person-area">
+                    <!-- //alert boxxx -->
+                    <div #alert id="mess_box" class="col-sm-8 mt-2 animate__animated animate__headShake animate__2" style="display:none;">
+                        <div style="padding: 5px;">
+                            <div id="inner-message" class="alert alert-success">
+                                New Message from {{alert_sender}} says "{{alert_content}}" <button type="button" class="close mx-auto" onclick="document.getElementById('mess_box').style.display = 'none'" data-dismiss="alert alert-error">&times;</button>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="mx-auto mt-5 mb-5 p-3" style="border-radius:20px;height:69vh;overflow:auto;width:90%;background-color:rgb(214, 214, 214);">
+                    <div #scroll class="mx-auto mt-5 mb-5 p-3" style="border-radius:20px;height:69vh;overflow:auto;width:90%;background-color:rgb(214, 214, 214);">
                         <div class="mt-1">
                             <h5><b style="color:#FF8000;" class="capitalize">{{active_user_name}}</b></h5>
                         </div>
+
                         <div #chat>
                             <div class="row m-0 d-flex flex-column align-items-center">
                                 <div class="pl-3 pr-3 d-flex justify-content-center mt-5 bd-highlight mb-3">

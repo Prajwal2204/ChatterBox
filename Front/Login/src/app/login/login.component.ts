@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private AuthService:AuthService, private cookieService: CookieService, private router: Router) { }
+  constructor(private AuthService:AuthService, private cookieService: CookieService, private router: Router ) { }
 
   error_message:string = "";
   isOn:boolean = true;
@@ -24,7 +24,7 @@ export class LoginComponent {
             let temp = JSON.parse(data.body)
             this.cookieService.put("auth-token", data.headers.get('auth-token'))
             this.cookieService.put("name", temp.name)
-            this.cookieService.put("id", temp.id)
+            this.cookieService.put("id", temp.id);
             this.router.navigate(['/home']);
           }
         },

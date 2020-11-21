@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  readonly loginURL:string = 'http://localhost:8080/auth/login';
-  readonly registerURL:string = 'http://localhost:8080/auth/register';
-  readonly logoutURL:string = 'http://localhost:8080/auth/logout';
+  private server:string = environment.HOST_LINK_ADDRESS
+  readonly loginURL:string = this.server + '/auth/login';
+  readonly registerURL:string = this.server + '/auth/register';
+  readonly logoutURL:string = this.server + '/auth/logout';
   constructor(private http: HttpClient) { }
 
   login(data:string){

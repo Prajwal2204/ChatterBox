@@ -3,23 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import * as io from "socket.io-client";
 import { CookieService } from 'ngx-cookie';
 import { Observable } from 'rxjs';
-import {notify} from 'notifyjs';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ChatApiService{
 
   private socket:any; 
-
-  readonly chatusersURL:string = 'http://localhost:8080/chat/users';
-  readonly getallchatURL:string = "http://localhost:8080/chat/conversation";
+  private server:string = environment.HOST_LINK_ADDRESS
+  readonly chatusersURL:string = this.server + '/chat/users';
+  readonly getallchatURL:string = this.server + "/chat/conversation";
   
   constructor(private http: HttpClient, private CookieService:CookieService) { 
+    
+  }
+
+  connectSocket(){
     let id = this.CookieService.get("id");
       this.socket = io('ws://localhost:3000', {
         query:`_id=${id}&username=${this.CookieService.get("name")}`,
       });
+      console.log('connected');
   }
 
   getChatUsers(auth:string){
@@ -40,6 +44,7 @@ export class ChatApiService{
   receive(){
     let observable = new Observable<{sender:string, from:string, to:string, content:string}>((observer) => {
       this.socket.on("sent_message", (data) => {
+        console.log("new message")
         observer.next(data)
       })
       return () =>{
@@ -52,10 +57,11 @@ export class ChatApiService{
   }
 
   disconnect(){
-    if(this.socket){
+    if(this.socket != undefined){
       this.socket.disconnect();
       console.log("disconnected!")
     }
-    
   }
+  
+
 }

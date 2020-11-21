@@ -7,6 +7,17 @@ li.logo{
   padding: 0;
 } */
 
+#mess_box {
+    /* position: fixed; */
+    /* top: 0; */
+    width: auto;
+    margin: 0 auto;
+}
+
+#inner-message {
+    margin: 0 auto;
+}
+
 nav {
     display: block;
     width: 100%;

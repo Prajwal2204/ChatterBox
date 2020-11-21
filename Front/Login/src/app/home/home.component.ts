@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     this.cookieService.put("name", "");
     this.username = "";
     this.cookieService.put("auth-token", "");
-    this.ChatApiService.disconnect()
+    //this.ChatApiService.disconnect();
     this.router.navigate(['/login'])
   }
 

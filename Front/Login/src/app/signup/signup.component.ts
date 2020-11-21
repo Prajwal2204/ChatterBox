@@ -3,7 +3,6 @@ import {AuthService} from '../auth.service';
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -24,7 +23,7 @@ export class SignupComponent {
             let temp = JSON.parse(data.body)
             this.cookieService.put("auth-token", data.headers.get('auth-token'))
             this.cookieService.put("name", temp.name)
-            this.cookieService.put("id", temp.id)
+            this.cookieService.put("id", temp.id);
             this.router.navigate(['/home']);
           }
         },

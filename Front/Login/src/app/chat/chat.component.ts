@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild, ElementRef, Renderer2, RendererFactory2 } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef, Renderer2, RendererFactory2, OnDestroy } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 import { ChatApiService } from '../chat-api.service';
@@ -8,32 +8,43 @@ import { ChatApiService } from '../chat-api.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(private cookieService: CookieService,
               private router: Router,
               private ChatApiService:ChatApiService,
               private renderer:Renderer2) { 
 
-                this.ChatApiService.receive().subscribe((data) => {
-                  this.receiveMessage(data)
-                })
+                
               }
   username:string = "";
   id:string = "";
   users:JSON[];
   active_user:string = "";
   active_user_name:string="";
+  alert_content:string="";
+  alert_sender:string="";
 
   @ViewChild('chat') chat:ElementRef;
+  @ViewChild('scroll') scroll:ElementRef;
   @ViewChild('message') message:ElementRef;
+  @ViewChild('alert') alert_box:ElementRef;
+  
 
+  ngOnDestroy(){
+    this.ChatApiService.disconnect();
+
+  }
   
 
   ngOnInit(): void {
 
     this.username  = this.cookieService.get("name");
     this.id  = this.cookieService.get("id");
+    this.ChatApiService.connectSocket();
+    this.ChatApiService.receive().subscribe((data) => {
+      this.receiveMessage(data)
+    })
 
     this.ChatApiService.getChatUsers(this.cookieService.get("auth-token"))
     .subscribe(
@@ -46,7 +57,6 @@ export class ChatComponent implements OnInit {
           }
         },
         error: error => {
-          console.log(error)
           this.router.navigate(['/login'])
         }
       })
@@ -70,7 +80,7 @@ export class ChatComponent implements OnInit {
       }
       let messages:any = JSON.parse(data.body)
       let i;
-      for(i=0; i<messages.length;i++){
+      for(i=(messages.length-1); i>=0 ; i--){
         if(messages[i].from == this.id){
           this.chat.nativeElement.appendChild(this.createMessageNode(1, messages[i].content, "pass", 0))
         }
@@ -95,6 +105,7 @@ export class ChatComponent implements OnInit {
     }
     
     this.chat.nativeElement.appendChild(this.createMessageNode(1, message_content, "passthis"));
+    this.scroll.nativeElement.scrollTo(0,(this.scroll.nativeElement.scrollHeight));
     var data:JSON = <JSON><unknown>{
       "sender_id" : this.active_user,
       "content" : message_content,
@@ -106,9 +117,10 @@ export class ChatComponent implements OnInit {
 
 
   receiveMessage(data){
-    console.log(data.sender)
     if(data.from != this.active_user){
-      alert(`New message from ${data.sender} says "${data.content}"`)
+      this.alert_content = data.content
+      this.alert_sender = data.sender
+      this.alert_box.nativeElement.style.display = "block"
       return
     }
 
@@ -116,6 +128,7 @@ export class ChatComponent implements OnInit {
     var content = data.content.charAt(0).toUpperCase() + data.content.slice(1)
     
     this.chat.nativeElement.appendChild(this.createMessageNode(0, content, name));
+    this.scroll.nativeElement.scrollTo(0,(this.scroll.nativeElement.scrollHeight));
   }
 
   createMessageNode(send_flag, message_content, name, no_message=0){
@@ -161,7 +174,7 @@ export class ChatComponent implements OnInit {
     this.cookieService.put("name", "");
     this.username = "";
     this.cookieService.put("auth-token", "");
-    this.ChatApiService.disconnect()
+    //this.ChatApiService.disconnect();
     this.router.navigate(['/login'])
   }
 
