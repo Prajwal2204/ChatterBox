@@ -13,9 +13,9 @@ export class ChatComponent implements OnInit, OnDestroy {
   constructor(private cookieService: CookieService,
               private router: Router,
               private ChatApiService:ChatApiService,
-              private renderer:Renderer2) { 
+              private renderer:Renderer2) {
 
-                
+
               }
   username:string = "";
   id:string = "";
@@ -29,13 +29,13 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('scroll') scroll:ElementRef;
   @ViewChild('message') message:ElementRef;
   @ViewChild('alert') alert_box:ElementRef;
-  
+
 
   ngOnDestroy(){
     this.ChatApiService.disconnect();
 
   }
-  
+
 
   ngOnInit(): void {
 
@@ -103,7 +103,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       alert("Enter some text to send!");
       return;
     }
-    
+
     this.chat.nativeElement.appendChild(this.createMessageNode(1, message_content, "passthis"));
     this.scroll.nativeElement.scrollTo(0,(this.scroll.nativeElement.scrollHeight));
     var data:JSON = <JSON><unknown>{
@@ -126,7 +126,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     var name = data.sender
     var content = data.content.charAt(0).toUpperCase() + data.content.slice(1)
-    
+
     this.chat.nativeElement.appendChild(this.createMessageNode(0, content, name));
     this.scroll.nativeElement.scrollTo(0,(this.scroll.nativeElement.scrollHeight));
   }
@@ -164,7 +164,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       new_message_node.setAttribute('class', r_class);
       new_message_node.innerHTML = receiver
     }
-    
+
     return new_message_node
 
   }
@@ -178,6 +178,6 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login'])
   }
 
-  
+
 
 }

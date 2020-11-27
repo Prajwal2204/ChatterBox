@@ -1,0 +1,229 @@
+/* #logo-hor{
+  width: 30%;
+  height:6%;
+}
+
+li.logo{
+  padding: 0;
+} */
+
+#mess_box {
+    /* position: fixed; */
+    /* top: 0; */
+    width: auto;
+    margin: 0 auto;
+}
+
+#inner-message {
+    margin: 0 auto;
+}
+
+nav {
+    display: block;
+    width: 100%;
+    margin: 0;
+    /*edge to edge*/
+}
+
+nav ul {
+    background-color: #5377BF;
+    overflow: hidden;
+    /*mobile friendly when browser is collapsing*/
+    margin: 0;
+    /*edge to edge*/
+    padding: 0;
+}
+
+li.active {
+    background-color: #F4F4F4;
+    color: #FF8000;
+}
+
+ul.topnav li {
+    font-weight: bold;
+    list-style: none;
+    /*assures that it doesnt add the bullet points*/
+    float: left;
+    /*floated to left*/
+}
+
+ul.topnav li.topnav-right {
+    float: right;
+    /*sign in and sign up floated to the right*/
+}
+
+ul.topnav li a {
+    display: block;
+}
+
+ul.topnav li a {
+    display: block;
+    text-decoration: none;
+    /*get rid of underline*/
+    min-height: 20px;
+    /*can use font-size: 20px; as well*/
+    text-align: center;
+    padding: 14px;
+    /* font-family: 'Roboto Condensed', sans-serif; */
+    text-transform: uppercase;
+    /*converts text to uppercase*/
+    color: #1C2321;
+}
+
+ul.topnav li a:hover {
+    /* background-color: #1C2321; */
+    background-color: #F4F4F4;
+    color: #FF8000;
+}
+
+ul.topnav li.dropdownIcon {
+    display: none;
+    /*to hide it initially*/
+    /*display prop is easily overwritten*/
+}
+
+.jumbotron {
+    background-color: #F4F4F4;
+}
+
+div.col-sm-12 {
+    text-align: center;
+}
+
+.lead {
+    font-size: 35px;
+}
+
+.chat-card {
+    padding: 10%;
+}
+
+.stories-card {
+    padding: 10%;
+}
+
+.signin-body {
+    margin-top: 0px;
+    /* top: 0px; */
+    background-color: #5377BF;
+    margin: 0;
+}
+
+.signin-container {
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    /* background-color: #5377BF;*/
+}
+
+.chat {
+    margin: 0px;
+    height: 100vh;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.person_name {
+    border-radius: 5px;
+    background-color: #5377BF;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.person_name:hover {
+    background-color: #F4F4F4;
+}
+
+.txt{
+  color: #1C2321;
+  margin-top: 2%;
+  font-weight: bold;
+}
+
+.txt:hover{
+  color: #FF8000;
+}
+
+.chat-names {
+    background-color: #5377BF;
+    height: 100vh;
+}
+
+.chat-area {
+    background-color: #F4F4F4;
+    height: 100vh;
+}
+
+.chat-person-name {
+    background-color: #5377BF;
+}
+
+.chat-person-area {
+    background-color: #F4F4F4;
+    min-height: 80vh;
+}
+
+.chat-person-text {
+    width: 100%;
+    margin: auto;
+}
+
+.send-txt {
+    width: 100%;
+    height: 70%;
+}
+
+
+/*assigning class names of body to signin-body and container to signin-container so as to prevent the styling from appearing on all bodies/containers used further*/
+
+.signin-card {
+    padding: 40px 0px 20px;
+    margin-top: 20%;
+    background-color: #F4F4F4;
+    box-shadow: 2px 2px 5px/*blur*/
+    rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 2px 2px 5px/*blur*/
+    rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 2px 2px 5px/*blur*/
+    rgba(0, 0, 0, 0.8);
+}
+
+.signin-card-block {
+    margin: auto;
+}
+
+.signin-img {
+    padding: 0 2rem 2rem;
+    /*rem, r-root font size, here it means 2x larger than root font size*/
+    display: block;
+    /*to stack on elements below it*/
+    margin: auto;
+    width: 80%;
+}
+
+.signin-btn {
+    width: 100%;
+    background-color: #FF8000;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+}
+
+.help {
+    display: block;
+    text-align: center;
+}
+
+.newAccount {
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    color: aliceblue;
+    margin-top: 15px;
+}
+
+.newAccount:hover {
+    color: #FF8000;
+}
