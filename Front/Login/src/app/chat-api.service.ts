@@ -20,7 +20,7 @@ export class ChatApiService{
 
   connectSocket(){
     let id = this.CookieService.get("id");
-      this.socket = io('ws://localhost:3000', {
+      this.socket = io(environment.HOST_SOCKET, {
         query:`_id=${id}&username=${this.CookieService.get("name")}`,
       });
       console.log('connected');

@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   HOST_LINK_ADDRESS : "http://localhost:8080",
+  HOST_SOCKET : "ws://localhost:3000",
+  //HOST_LINK_ADDRESS : "https://chatter-box-api.herokuapp.com",
+  //HOST_SOCKET : "ws://chatter-box-api.herokuapp.com:3000"
 };
 
 /*
