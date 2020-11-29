@@ -13,43 +13,6 @@
             <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
             <!--that href is used to solve the problem of the dropdown popping up and disappearing-->
             <!--unicode for dropdown but it needs to be hidden-->
-
-<<<<<<< HEAD
-      </ul>
-  </nav>
-  <div class="container signin-container">
-      <!--container = center, container-fluid = "100% width-->
-      <div class="row chat">
-          <div class="col-sm-12 col-md-3 chat-names">
-              <div class="row mx-auto mt-5 pb-5" style="border-radius:20px;overflow:auto;max-height:80vh;background-color:rgb(214, 214, 214);">
-                  <div class="mx-auto mt-3 col-sm-8">
-                      <h2>Upload Story</h2>
-                  </div>
-                  <!-- <div *ngFor="let user of users; let i = index" (click)="changeUser(user)" style="height:auto;" class="col-sm-8 mx-auto person_name">
-                      <p class="px-3 capitalize centered txt">{{user.username }}</p>
-                  </div> -->
-
-                  <form class = "mx-auto mt-5">
-                    <div class = "upload">
-                      <div class = "form-group">
-                        <input type = "file" id = "file" class = "form-control upload-file" name = "file">
-                      </div>
-                      <button type="submit" class="btn signin-btn btn-lg">Upload</button>
-                    </div>
-                  </form>
-              </div>
-          </div>
-          <div id="sike" class="col-sm-12 col-md-9 chat-area">
-              <div class="row chat-person-area">
-                  <!-- //alert boxxx -->
-                  <div #alert id="mess_box" class="col-sm-8 mt-2 animate__animated animate__headShake animate__2" style="display:none;">
-                      <div style="padding: 5px;">
-                          <div id="inner-message" class="alert alert-success">
-                              New Message from {{alert_sender}} says "{{alert_content}}" <button type="button" class="close mx-auto" onclick="document.getElementById('mess_box').style.display = 'none'" data-dismiss="alert alert-error">&times;</button>
-                          </div>
-                      </div>
-                  </div>
-=======
         </ul>
     </nav>
     <div class="container signin-container">
@@ -59,11 +22,11 @@
                 <div class="row mx-auto mt-5 pb-5" style="border-radius:20px;overflow-y:auto;max-height:80vh;background-color:rgb(214, 214, 214);">
                     <div class="mx-auto mt-3 col-sm-8">
                         <h2>Upload Story</h2>
-                        <div class="mx-auto mt-5">
+                        <!-- <div class="mx-auto mt-5">
                             <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-                        </div>
+                        </div> -->
+                        <app-file-upload></app-file-upload>
                     </div>
->>>>>>> e7238ab2cda10730ae1b586cff07614ec4b13407
 
 
                 </div>

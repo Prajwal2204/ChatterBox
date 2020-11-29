@@ -6,11 +6,13 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CookieModule } from 'ngx-cookie';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
