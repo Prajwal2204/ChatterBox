@@ -59,7 +59,7 @@
                     <div class="col-md-10">
                         <form>
                             <div class="form-group">
-                                <input #message type="text" name="msg" class="form-control send-txt" id="txt-msg" placeholder="Enter Message">
+                                <input #message type="text" (keyup)="EnterKey($event)" name="msg" class="form-control send-txt" id="txt-msg" placeholder="Enter Message">
                             </div>
                         </form>
                     </div>

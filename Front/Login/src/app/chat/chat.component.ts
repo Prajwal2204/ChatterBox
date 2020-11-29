@@ -169,6 +169,14 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   }
 
+  EnterKey(event:any){
+    if(event.key == 'Enter'){
+      event.preventDefault();
+      this.sendMessage();
+      console.log("sent");
+    }
+  }
+
 
   Logout(): void{
     this.cookieService.put("name", "");
