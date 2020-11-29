@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { CookieModule } from 'ngx-cookie';
     FormsModule,
     AppRoutingModule,
     CookieModule.forRoot(),
+    AngularFileUploaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
