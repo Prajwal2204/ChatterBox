@@ -7,6 +7,10 @@ li.logo{
   padding: 0;
 } */
 
+.afu-reset-btn {
+    background-color: #FF8000 !important;
+}
+
 #mess_box {
     /* position: fixed; */
     /* top: 0; */
@@ -136,14 +140,14 @@ div.col-sm-12 {
     background-color: #F4F4F4;
 }
 
-.txt{
-  color: #1C2321;
-  margin-top: 2%;
-  font-weight: bold;
+.txt {
+    color: #1C2321;
+    margin-top: 2%;
+    font-weight: bold;
 }
 
-.txt:hover{
-  color: #FF8000;
+.txt:hover {
+    color: #FF8000;
 }
 
 .chat-names {
