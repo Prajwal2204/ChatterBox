@@ -22,11 +22,20 @@
           <div class="col-sm-12 col-md-3 chat-names">
               <div class="row mx-auto mt-5 pb-5" style="border-radius:20px;overflow:auto;max-height:80vh;background-color:rgb(214, 214, 214);">
                   <div class="mx-auto mt-3 col-sm-8">
-                      <h2>Users</h2>
+                      <h2>Upload Story</h2>
                   </div>
-                  <div *ngFor="let user of users; let i = index" (click)="changeUser(user)" style="height:auto;" class="col-sm-8 mx-auto person_name">
+                  <!-- <div *ngFor="let user of users; let i = index" (click)="changeUser(user)" style="height:auto;" class="col-sm-8 mx-auto person_name">
                       <p class="px-3 capitalize centered txt">{{user.username }}</p>
-                  </div>
+                  </div> -->
+
+                  <form class = "mx-auto mt-5">
+                    <div class = "upload">
+                      <div class = "form-group">
+                        <input type = "file" id = "file" class = "form-control upload-file" name = "file">
+                      </div>
+                      <button type="submit" class="btn signin-btn btn-lg">Upload</button>
+                    </div>
+                  </form>
               </div>
           </div>
           <div id="sike" class="col-sm-12 col-md-9 chat-area">

@@ -116,6 +116,10 @@ div.col-sm-12 {
     /* background-color: #5377BF;*/
 }
 
+.upload-file{
+  background-color: #F4F4F4;
+}
+
 .chat {
     margin: 0px;
     height: 100vh;
