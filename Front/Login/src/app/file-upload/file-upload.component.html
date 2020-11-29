@@ -1,21 +1,28 @@
-<div class="text-center mt-5">
-  <input class="form-control upload" type="file"
-          (change)="onChange($event)">
-  <br>
-  <button (click)="onUpload()"
-      class="btn signin-btn btn-lg">
+<div class="mt-5">
+    <div class="custom-file">
+        <input accept="video/mp4,video/x-m4v,video/*" type="file" name="VideoIdTag" (change)="onChange($event)" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label text-left" for="inputGroupFile01">{{file_name}}</label>
+    </div>
+    <button (click)="onUpload()" class="btn signin-btn btn-lg mt-4">
       Upload
-  </button>
+    </button>
 </div>
 
 <!-- Shareable short link of  uoloaded file -->
-<div class="container text-center upload"
-  *ngIf="shortLink">
-  <h2> Visit Here</h2>
-  <a href="{{shortLink}}">{{shortLink}}</a>
+<div class="container text-center upload" *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
 </div>
 
 <!--Flag variable is used here-->
-<div class="container" *ngIf="loading">
-  <h3>Loading ...</h3>
+<div class="container mt-4" *ngIf="loading">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container mt-3" style="height:auto;width:auto;">
+    <div class="alert " [ngClass]="{'alert-success': step === 'step1', 'alert-warning':step === 'step2', 'alert-error':step === 'step3' }">
+        {{upload_status}}
+    </div>
 </div>

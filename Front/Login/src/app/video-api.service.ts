@@ -15,17 +15,15 @@ export class VideoApiService {
   constructor(private CookieService:CookieService, private http:HttpClient) { }
 
 
-  getAllVideos(auth:string){
+  getAllVideos(auth:string):Observable<any>{
     const headers = { 'auth-token': auth };
     return this.http.get(this.allVideosURL, {headers, responseType:'text', observe:'response'})
   }
 
-  postFile(fileToUpload: File, auth:string): Observable<any> {
-    const endpoint = this.videoUploadURL;
-    const headers = { 'auth-token': auth, 'Content-Disposition': 'form-data'};
-    const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http.post(endpoint, formData, {headers})
-    
-}
+  uploadVideo(file, auth:string):Observable<any> {
+    const formData = new FormData();
+    formData.append("VideoIdTag", file, file.name);
+    const headers = { 'auth-token': auth,};
+    return this.http.post(this.videoUploadURL, formData, {headers, responseType:'text', observe:'response'})
+  }
 }

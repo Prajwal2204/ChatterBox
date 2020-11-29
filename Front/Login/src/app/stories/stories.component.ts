@@ -2,6 +2,7 @@ import { Component, OnInit,ViewChild, ElementRef, Renderer2, RendererFactory2, O
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 import { VideoApiService } from '../video-api.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-stories',
@@ -12,19 +13,17 @@ export class StoriesComponent implements OnInit {
 
   constructor(private cookieService: CookieService,
               private router: Router,
-              private VideoApiService:VideoApiService,
-              private renderer:Renderer2) {
+              private VideoApiService:VideoApiService) {
 
 
               }
   username:string = "";
   id:string = "";
-  users:JSON[];
-  active_user:string = "";
-  active_user_name:string="";
-  alert_content:string="";
-  alert_sender:string="";
+  videos:JSON[];
+  step:string="";
   fileToUpload: File = null;
+  novideos:string = "No Stories Available"
+  server:string = environment.HOST_LINK_ADDRESS;
 
   @ViewChild('chat') chat:ElementRef;
   @ViewChild('scroll') scroll:ElementRef;
@@ -35,24 +34,27 @@ export class StoriesComponent implements OnInit {
   ngOnInit(): void {
     this.username  = this.cookieService.get("name");
     this.id  = this.cookieService.get("id");
-
-  }
-
-  handleFileInput(element:any){
-    console.log(element)
-    this.fileToUpload = element.item(0);
-    const auth  = this.cookieService.get("auth");
-    this.VideoApiService.postFile(this.fileToUpload, auth).subscribe(
-      {
-        next: data => {
-          console.log(data)
-        },
-        error: error => {
-          console.log(error)
+    this.VideoApiService.getAllVideos(this.cookieService.get("auth-token"))
+    .subscribe({
+      next:data=>{
+        if(data.body != ""){
+          this.novideos = ""
+          let temp = JSON.parse(data.body)
+          console.log(temp)
+          let i=0;
+          for(i=0;i<temp.length;i++){
+            temp[i].video_link = this.server + "/static/" + temp[i].video_link
+          }
+          console.log(temp)
+          this.videos = temp; 
         }
-      })
-  }
+      },
+      error:error=>{
+        console.log(error)
+      }
+    })
 
+  }
 
   Logout(): void{
     this.cookieService.put("name", "");

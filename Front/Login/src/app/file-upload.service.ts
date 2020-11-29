@@ -12,6 +12,7 @@ export class FileUploadService {
   upload(file):Observable<any> {
       const formData = new FormData();
       formData.append("file", file, file.name);
+      console.log(formData)
       return this.http.post(this.baseApiUrl, formData)
   }
 }
